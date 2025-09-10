@@ -1,8 +1,9 @@
 import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+
+import bcryptjs from "bcryptjs";
 
 import prisma from "@/lib/prisma";
-import Credentials from "next-auth/providers/credentials";
-import bcryptjs from "bcryptjs";
 import { signInSchema } from "./lib/zod";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -12,26 +13,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         email: {
           type: "email",
           label: "Email",
-          placeholder: "johndoe@gmail.com",
+          id: "email",
+          name: "email",
         },
         password: {
           type: "password",
           label: "Password",
-          placeholder: "*****",
+          id: "password",
+          name: "password",
         },
       },
       authorize: async (credentials) => {
         let user = null;
+        // Validate input
+        const { email, password } = signInSchema.parse(credentials);
 
-        const { email, password } = await signInSchema.parseAsync(credentials);
+        // Grab the user based on the email
+        user = await prisma.user.findUnique({ where: { email } });
 
-        try {
-          user = await prisma.user.findUnique({ where: { email: email } });
-        } catch (err) {
-          console.log(err);
+        if (user) {
+          if (!(await bcryptjs.compare(password, user.hashedPassword))) user = null;
         }
-
-        if (!(await bcryptjs.compare(password, user!.hashedPassword))) user = null;
 
         return user;
       },
