@@ -30,16 +30,16 @@ enum ProductStatus {
 }
 
 model User {
-  id             String   @id @default(cuid())
-  email          String   @unique
+  id             String    @id @default(cuid())
+  email          String    @unique
   hashedPassword String
   firstName      String
   lastName       String
-  role           UserRole @default(GUEST)
-  permissions    String
-  isActive       Boolean
-  Address        Address?
-  lastLogin      DateTime
+  role           UserRole  @default(GUEST)
+  permissions    String?
+  isActive       Boolean?  @default(false)
+  address        Address?
+  lastLogin      DateTime?
 }
 
 model Customer {
