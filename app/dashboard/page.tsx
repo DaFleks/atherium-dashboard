@@ -1,7 +1,7 @@
 import Container from "@/components/aetherium/Container";
 
 const page = async () => {
-  return <Container>Products</Container>;
+  return <Container>Dashboard</Container>;
 };
 
 export default page;

@@ -21,7 +21,7 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps) => {
   return (
-    <Container as="nav" className="absolute top-0 left-0 w-full bg-white flex justify-between items-center gap-4 shadow p-2">
+    <Container as="nav" className="w-full bg-white flex justify-between items-center gap-4 shadow z-10 p-2">
       <Container className="flex items-center w-full gap-4">
         <Link href="/dashboard">
           <Logo nav />
@@ -31,6 +31,7 @@ const Navbar = (props: NavbarProps) => {
           <Input placeholder="Search..." className="border-none focus-visible:ring-ring/0" />
         </Container>
       </Container>
+
       <Container className="flex gap-4 justify-self-end h-full items-center">
         <NavButton icon={BellIcon} />
         <NavButton icon={CogIcon} />

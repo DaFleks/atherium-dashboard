@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 
 import Container from "@/components/aetherium/Container";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 const layout = async ({ children }: { children: React.ReactNode }) => {
   const session = await auth();
@@ -12,8 +13,15 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <Container className="bg-gradient-to-r from-gray-300 to-slate-400 h-full flex items-center">
       <Container center padded className="border h-[90%] w-[80%] bg-white/85 rounded-xl shadow-xl relative overflow-hidden">
-        <Navbar name={`${user!.firstName} ${user!.lastName}`} email={user!.email} />
-        {children}
+        <Container className="absolute top-0 left-0 w-full h-full flex flex-col">
+          <Navbar name={`${user!.firstName} ${user!.lastName}`} email={user!.email} />
+          <Container className="flex grow">
+            <Sidebar />
+            <Container as="main" padded className=" grow bg-white text-slate-600">
+              {children}
+            </Container>
+          </Container>
+        </Container>
       </Container>
     </Container>
   );
