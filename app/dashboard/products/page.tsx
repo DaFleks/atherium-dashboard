@@ -1,5 +1,7 @@
+import Container from "@/components/aetherium/Container";
+
 const page = () => {
-  return <div>Products</div>;
+  return <Container>Products</Container>;
 };
 
 export default page;

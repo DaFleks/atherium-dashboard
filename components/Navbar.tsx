@@ -21,15 +21,10 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps) => {
   return (
-    <Container as="nav" className="w-full bg-white flex justify-between items-center gap-4 shadow z-10 p-2">
-      <Container className="flex items-center w-full gap-4">
-        <Link href="/dashboard">
-          <Logo nav />
-        </Link>
-        <Container className="w-1/3 flex items-center gap-0 border rounded-md px-2">
-          <SearchIcon className="w-4 h-4" />
-          <Input placeholder="Search..." className="border-none focus-visible:ring-ring/0" />
-        </Container>
+    <Container as="nav" className="h-[75px] w-full bg-white flex justify-between items-center gap-4 border-b z-10 p-2">
+      <Container className="w-1/3 flex items-center gap-0 border rounded-md px-2">
+        <SearchIcon className="w-4 h-4" />
+        <Input placeholder="Search..." className="border-none focus-visible:ring-ring/0" />
       </Container>
 
       <Container className="flex gap-4 justify-self-end h-full items-center">

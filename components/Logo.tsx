@@ -9,7 +9,7 @@ const Logo = ({ nav }: { nav?: boolean }) => {
   return (
     <>
       {nav ? (
-        <Container padded as="div" className="w-fit space-y-1 select-none">
+        <Container as="div" className="w-fit mx-auto space-y-1 select-none">
           <SunriseIcon size="18" className="mx-auto" />
           <Text as="p" className="text-center font-semibold text-xs" style={{ fontFamily: "monospace", letterSpacing: "0.25rem" }}>
             AETHERIUM
