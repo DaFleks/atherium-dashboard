@@ -21,7 +21,7 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps) => {
   return (
-    <Container as="nav" padded className="w-full bg-white flex items-center justify-between gap-4 border-b z-10">
+    <Container as="nav" padded className="w-full bg-white flex items-center justify-between gap-4 border-b z-10 shadow-md shadow-slate-200">
       <Container className="flex gap-4 items-center w-full">
         <Container className=" flex items-center h-full px-4">
           <Logo nav />

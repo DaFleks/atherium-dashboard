@@ -1,10 +1,11 @@
 "use client";
 
 import {
+  ChartBarIncreasingIcon,
   ChevronLeftCircleIcon,
   ChevronRightCircleIcon,
   CircleDollarSignIcon,
-  HomeIcon,
+  LayoutDashboardIcon,
   LogOutIcon,
   PackageIcon,
   TagIcon,
@@ -22,10 +23,10 @@ const Sidebar = () => {
   return (
     <Container
       as="aside"
-      className={` ${!collapse && "w-1/4 px-4"} py-4 grow bg-slate-100 text-slate-500 font-semibold relative space-y-6 border-r`}>
+      className={` ${!collapse && "w-1/4 px-4"} py-4 grow bg-slate-100 text-slate-500 font-semibold relative space-y-6  shadow-xl shadow-slate-300`}>
       <Button
         variant="ghost"
-        className="absolute top-[47%] translate-y-[75%] right-[-20] hover:bg-transparent hover:text-slate-400"
+        className="absolute top-[49.75%] -right-5 hover:bg-transparent hover:text-slate-400"
         onClick={handleCollapse}>
         {collapse ? (
           <ChevronRightCircleIcon className="bg-slate-100 rounded-full" />
@@ -34,12 +35,13 @@ const Sidebar = () => {
         )}
       </Button>
 
-      <SidebarBtn href="/dashboard/products" icon={HomeIcon} text="Dashboard" collapse={collapse} />
+      <SidebarBtn href="/dashboard/products" icon={LayoutDashboardIcon} text="Dashboard" collapse={collapse} />
       <SidebarBtn href="/dashboard/products" icon={TagIcon} text="Products" collapse={collapse} />
       <SidebarBtn href="/dashboard/products" icon={UserCircle2Icon} text="Users" collapse={collapse} />
       <SidebarBtn href="/dashboard/products" icon={PackageIcon} text="Orders" collapse={collapse} />
       <SidebarBtn href="/dashboard/products" icon={CircleDollarSignIcon} text="Sales" collapse={collapse} />
-      <Separator className="bg-slate-400 mx-auto !w-[50%]" />
+      <SidebarBtn href="/dashboard/products" icon={ChartBarIncreasingIcon} text="Analytics" collapse={collapse} />
+      <Separator className={`bg-slate-300 mx-auto ${collapse ? "!w-[50%]" : "!w-[90%]"}`} />
       <SidebarBtn
         icon={LogOutIcon}
         text="Sign Out"
