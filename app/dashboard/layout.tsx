@@ -12,14 +12,16 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Container className="bg-gradient-to-r from-gray-300 to-slate-400 h-full flex items-center">
-      <Container center className="border h-[90%] w-[80%] bg-white/85 rounded-xl shadow-xl relative overflow-hidden flex">
-        <Sidebar />
-        <Container className="w-full flex flex-col">
-          <Navbar name={`${user!.firstName} ${user!.lastName}`} email={user!.email} />
-          <Container padded className="bg-white grow">
+      <Container center className="border h-[90%] w-[80%] bg-white/85 rounded-xl shadow-xl relative overflow-hidden flex flex-col">
+        <Navbar name={`${user!.firstName} ${user!.lastName}`} email={user!.email} />
+
+        <Container className="flex grow">
+          <Sidebar />
+          <Container padded className="bg-white grow w-full">
             {children}
           </Container>
         </Container>
+
       </Container>
     </Container>
   );

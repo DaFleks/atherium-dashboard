@@ -9,9 +9,9 @@ const Logo = ({ nav }: { nav?: boolean }) => {
   return (
     <>
       {nav ? (
-        <Container as="div" className="w-fit mx-auto space-y-1 select-none">
-          <SunriseIcon size="18" className="mx-auto" />
-          <Text as="p" className="text-center font-semibold text-xs" style={{ fontFamily: "monospace", letterSpacing: "0.25rem" }}>
+        <Container as="div" className="w-fit space-y-1 select-none">
+          <SunriseIcon size="32" className="mx-auto" />
+          <Text as="p" className="text-center font-semibold text-lg" style={{ fontFamily: "monospace", letterSpacing: "0.25rem" }}>
             AETHERIUM
           </Text>
         </Container>
